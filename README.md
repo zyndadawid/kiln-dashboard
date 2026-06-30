@@ -1,36 +1,62 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+🔥 Kiln Dashboard
 
-## Getting Started
+A real-time kiln temperature monitoring system built for ceramic firing workflows.
 
-First, run the development server:
+Live demo: https://kiln-dashboard.vercel.app/
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+📡 System Overview
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+ESP32 reads temperature from a Type S thermocouple and streams it to a live dashboard.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+ESP32 → ThingSpeak → Next.js API → React Dashboard
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+⚙️ Features
+Real-time kiln temperature display
+Historical temperature graph (Plotly)
+Automatic polling (30s interval)
+Server-side API proxy (no exposed secrets)
+Auto-deploy via Vercel
+🧠 Architecture
 
-## Learn More
+ESP32 (Arduino)
+→ ThingSpeak
+→ Next.js API route (/api/kiln)
+→ React hook (useKiln)
+→ UI dashboard
 
-To learn more about Next.js, take a look at the following resources:
+🛠 Tech Stack
+Next.js 15 (App Router)
+React
+TypeScript
+Tailwind CSS
+Plotly.js
+ESP32 (Arduino)
+ThingSpeak API
+Vercel
+🔐 Security
+No API keys exposed in frontend
+ThingSpeak access handled server-side
+Secrets stored in .env.local and Vercel env vars
+📊 Data Source
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Type S thermocouple via MAX31856 on ESP32.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+🚀 Deployment
+Push to main → auto deploy on Vercel
+Environment variables configured in Vercel dashboard
+🧪 Status
 
-## Deploy on Vercel
+MVP stage:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Live temperature tracking
+Basic historical graph
+Stable polling system
+📸 Future Ideas
+Kiln phase detection (heat / soak / cool)
+Session logging
+Mobile UI
+Alerts
+Multi-kiln support
+🧑‍🎨 Why this exists
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Experimental system combining ceramics, electronics, and software into a live physical computing dashboard.

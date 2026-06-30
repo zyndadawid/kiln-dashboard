@@ -28,15 +28,15 @@ It streams temperature data from a Type S thermocouple and visualizes it in real
 
 ## 🧠 Architecture
 
-ESP32 (Arduino)
-↓
-ThingSpeak (IoT channel)
-↓
-Next.js API (/api/kiln)
-↓
-React Hook (useKiln)
-↓
-Dashboard UI
+- ESP32 (Arduino)
+- ↓
+- ThingSpeak (IoT channel)
+- ↓
+- Next.js API (/api/kiln)
+- ↓
+- React Hook (useKiln)
+- ↓
+- Dashboard UI
 
 ---
 
